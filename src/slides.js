@@ -14,19 +14,11 @@ class Slide{
 
         this.titleSection = document.createElement('div')
 
-        this.titleSection.style.height = '20px'
-        this.titleSection.style.width = '50px'
-        this.titleSection.style.color = 'white'
-
         this.titleSection.innerText = this.title
 
         this.newSlide.appendChild(this.titleSection)
 
         this.bodySection = document.createElement('div')
-
-        this.bodySection.style.height = '20px'
-        this.bodySection.style.width = '50px'
-        this.bodySection.style.color = 'white'
 
         this.bodySection.innerText = this.body
 

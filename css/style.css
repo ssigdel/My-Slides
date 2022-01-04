@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Mulish:wght@200;300&family=Volkhov&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Mulish:wght@200;300&family=Poppins:wght@600&family=Volkhov&display=swap");
+
 body {
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
   border-bottom: 1px solid #999;
+}
+
+.header-content h1 {
+  font-family: "Volkhov", serif;
+  color: #181e4b;
 }
 
 .button {
@@ -37,4 +45,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.titleSection,
+.bodySection {
+  height: 20px;
+  width: 50px;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 16px;
 }

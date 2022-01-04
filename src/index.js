@@ -28,7 +28,7 @@ bodyInput.addEventListener('change', (e) => {
     slides[currentIndex -1].bodySection.innerText = slides[currentIndex -1 ].body
 })
 
-console.log(leftContent.children)
+console.log(leftContent.child)
 
 
 
