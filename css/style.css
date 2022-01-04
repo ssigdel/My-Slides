@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+}
+
+header {
+  border-bottom: 1px solid #999;
+}
+
+.button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1a501;
+  color: #fff;
+}
+
+.edit-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-section input {
+  background: transparent;
+  text-align: center;
+  width: 80%;
+  outline: none;
+  border: none;
+  padding-top: 50px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,6 @@
+const leftContent = document.querySelector('.left-content')
+const titleInput = document.querySelector('input[name="title"]')
+const bodyInput = document.querySelector('input[name="body"]')
+const newSlideButton = document.querySelector('.new-slide-button')
+const presentButton = document.querySelector('.present-button')
+const editSection = document.querySelector('.edit-section')
