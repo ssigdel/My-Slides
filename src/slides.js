@@ -3,8 +3,8 @@ let currentIndex = 1
 class Slide{
     constructor(index){
         this.index = index
-        this.title = `Title ${this.index}`
-        this.body = `Body ${this.index}`
+        this.title = ''
+        this.body = ''
     }
 
     createSlide(){
