@@ -3,6 +3,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #fafafa;
 }
 
 header {
@@ -12,6 +13,20 @@ header {
 .header-content h1 {
   font-family: "Volkhov", serif;
   color: #181e4b;
+}
+
+nav {
+  margin: 10px 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 50px;
+  cursor: pointer;
 }
 
 .button {

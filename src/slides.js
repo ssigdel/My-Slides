@@ -8,6 +8,10 @@ class Slide{
     }
 
     createSlide(){
+        this.slideIndex = document.createElement('div')
+
+        this.slideIndex.innerText = this.index
+
         this.newSlide = document.createElement('div')
 
         this.newSlide.setAttribute('class', 'slide')
@@ -26,6 +30,8 @@ class Slide{
 
         this.newSlide.addEventListener('click', this.handleSlideClick)
 
+        leftContent.appendChild(this.slideIndex)
+
         leftContent.appendChild(this.newSlide)
     }
 
@@ -34,7 +40,6 @@ class Slide{
         bodyInput.value = this.body 
 
         currentIndex = this.index
-
     }
 
 }
