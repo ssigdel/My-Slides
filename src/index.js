@@ -71,13 +71,11 @@ let clickState = {
 boldText.addEventListener('click', (e) => {
     if(clickState.clickBoldText){
         e.target.style.backgroundColor = 'transparent'
-        e.target.style.padding = '0px'
         titleInput.style.fontWeight = 'normal'
         clickState.clickBoldText = false
     } 
     else{
         e.target.style.backgroundColor = 'lightblue'
-        e.target.style.padding = '5px'
         titleInput.style.fontWeight = 'bold'
         clickState.clickBoldText = true
     }
@@ -86,13 +84,11 @@ boldText.addEventListener('click', (e) => {
 italicText.addEventListener('click', (e) => {
     if(clickState.clickItalicText){
         e.target.style.backgroundColor = 'transparent'
-        e.target.style.padding = '0px'
         titleInput.style.fontStyle = 'normal'
         clickState.clickItalicText = false
     }
     else{
         e.target.style.backgroundColor = 'lightblue'
-        e.target.style.padding = '5px'
         titleInput.style.fontStyle = 'italic'
         clickState.clickItalicText = true
     }
@@ -101,13 +97,11 @@ italicText.addEventListener('click', (e) => {
 leftAlign.addEventListener('click', (e) => {
     if(clickState.clickLeftAlign){
         e.target.style.backgroundColor = 'transparent'
-        e.target.style.padding = '0px'
         titleInput.style.textAlign = 'center'
         clickState.clickLeftAlign = false
     }
     else{
         e.target.style.backgroundColor = 'lightblue'
-        e.target.style.padding = '5px'
         titleInput.style.textAlign = 'left'
         clickState.clickLeftAlign = true
     }
@@ -116,13 +110,11 @@ leftAlign.addEventListener('click', (e) => {
 centerAlign.addEventListener('click', (e) => {
     if(clickState.clickCenterAlign){
         e.target.style.backgroundColor = 'transparent'
-        e.target.style.padding = '0px'
         titleInput.style.textAlign = 'center'
         clickState.clickCenterAlign = false
     }
     else{
         e.target.style.backgroundColor = 'lightblue'
-        e.target.style.padding = '5px'
         titleInput.style.textAlign = 'center'
         clickState.clickCenterAlign = true
     }
@@ -131,13 +123,11 @@ centerAlign.addEventListener('click', (e) => {
 rightAlign.addEventListener('click', (e) => {
     if(clickState.clickRightAlign){
         e.target.style.backgroundColor = 'transparent'
-        e.target.style.padding = '0px'
         titleInput.style.textAlign = 'center'
         clickState.clickRightAlign = false
     }
     else{
         e.target.style.backgroundColor = 'lightblue'
-        e.target.style.padding = '5px'
         titleInput.style.textAlign = 'right'
         clickState.clickRightAlign = true
     }

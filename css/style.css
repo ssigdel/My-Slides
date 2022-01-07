@@ -63,3 +63,7 @@ nav ul li {
   font-size: 1rem;
   padding-bottom: 180px;
 }
+
+.text-icons li i {
+  padding: 5px;
+}
