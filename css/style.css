@@ -17,6 +17,8 @@ header {
 
 nav {
   margin: 10px 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
@@ -37,41 +39,27 @@ nav ul li {
   color: #fff;
 }
 
-.edit-section {
+.input-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 5% 0;
 }
 
-.edit-section input {
+.input-container input {
   background: transparent;
   text-align: center;
   width: 80%;
   outline: none;
-  border: none;
   padding-top: 50px;
-  font-size: 2em;
   color: #fff;
 }
 
-.slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.input-container input[name="title"] {
+  font-size: 2rem;
 }
 
-.titleSection {
-  height: 20px;
-  width: 50px;
-  color: white;
-  margin-bottom: 10px;
+.input-container input[name="body"] {
   font-size: 1rem;
-}
-
-.bodySection {
-  height: 20px;
-  width: 20px;
-  font-size: 0.5rem;
+  padding-bottom: 180px;
 }

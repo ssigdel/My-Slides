@@ -20,11 +20,15 @@ class Slide{
 
         this.titleSection.innerText = this.title
 
+        this.titleSection.style.fontSize = '10px'
+
         this.newSlide.appendChild(this.titleSection)
 
         this.bodySection = document.createElement('div')
 
         this.bodySection.innerText = this.body
+
+        this.bodySection.style.fontSize = '8px'
 
         this.newSlide.appendChild(this.bodySection)
 

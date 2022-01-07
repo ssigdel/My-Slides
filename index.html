@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/style.css">
@@ -23,10 +24,18 @@
                 <li>Insert Image</li>
                 <li>Text</li>
                 <li>Layout</li>
+                <li>Theme</li>
                 <li> 
-                    <input type="color" value="#333">
+                    <input type="color" value="#050505">
                     <label for="Colour"> Colour</label>
                 </li>
+            </ul>
+            <ul class="text-icons">
+                <li><i class="fas fa-bold"></i></li>
+                <li><i class="fas fa-italic"></i></li>
+                <li><i class="fas fa-align-left"></i></li>
+                <li><i class="fas fa-align-center"></i></li>
+                <li><i class="fas fa-align-right"></i></li>
             </ul>
         </nav>
     </header>
@@ -39,8 +48,10 @@
         <section class="main-section">
             <div class="main-content">
                 <div class="edit-section">
-                    <input type="text" name="title" placeholder="Click to add title">
-                    <input type="text" name="body" placeholder="Click to add text">
+                    <div class="input-container">
+                        <input type="text" name="title" placeholder="Click to add title">
+                        <input type="text" name="body" placeholder="Click to add text">
+                    </div>
                 </div>
             </div>
         </section>
