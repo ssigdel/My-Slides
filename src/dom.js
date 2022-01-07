@@ -1,3 +1,4 @@
+//dom intialization
 const leftContent = document.querySelector('.left-content')
 const titleInput = document.querySelector('input[name="title"]')
 const bodyInput = document.querySelector('input[name="body"]')
@@ -5,3 +6,8 @@ const colourInput = document.querySelector('input[type="color"]')
 const newSlideButton = document.querySelector('.new-slide-button')
 const presentButton = document.querySelector('.present-button')
 const editSection = document.querySelector('.edit-section')
+const boldText = document.querySelector('.bold-text')
+const italicText = document.querySelector('.italic-text')
+const leftAlign = document.querySelector('.left-align')
+const centerAlign = document.querySelector('.center-align')
+const rightAlign = document.querySelector('.right-align')
