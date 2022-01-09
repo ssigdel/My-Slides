@@ -21,10 +21,10 @@
         <nav>
             <ul class="nav-items">
                 <li>File</li>
-                <li>Insert Image</li>
+                <li class="insert-image">Insert Image</li>
                 <li>Text</li>
                 <li>Layout</li>
-                <li>Theme</li>
+                <li class="theme">Theme</li>
                 <li> 
                     <input type="color" value="#050505">
                     <label for="color"> Colour</label>
@@ -44,13 +44,17 @@
             <div class="left-content">
                 <button class="button new-slide-button">New Slide</button>
             </div>
+            <div class="change-display">
+                <span class='left-view'><i class="fas fa-angle-double-left"></i></span>
+                <span class='right-view'><i class="fas fa-angle-double-right"></i></span>
+            </div>
         </section>
         <section class="main-section">
             <div class="main-content">
                 <div class="edit-section">
                     <div class="input-container">
-                        <input type="text" name="title" placeholder="Click to add title">
-                        <input type="text" name="body" placeholder="Click to add text">
+                        <input type="text" value="" name="title" placeholder="Click to add title">
+                        <input type="text" value="" name="body" placeholder="Click to add text">
                     </div>
                 </div>
             </div>
@@ -59,5 +63,6 @@
     <script src="src/dom.js"></script>
     <script src="src/slides.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/imageUpload.js"></script>
 </body>
 </html>

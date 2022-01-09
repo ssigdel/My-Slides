@@ -5,6 +5,7 @@ class Slide{
         this.index = index
         this.title = ''
         this.body = ''
+        this.imageUrl = ''
     }
 
     createSlide(){
@@ -20,7 +21,7 @@ class Slide{
 
         this.titleSection.innerText = this.title
 
-        this.titleSection.style.fontSize = '10px'
+        this.titleSection.style.fontSize = '2rem'
 
         this.newSlide.appendChild(this.titleSection)
 
@@ -28,9 +29,15 @@ class Slide{
 
         this.bodySection.innerText = this.body
 
-        this.bodySection.style.fontSize = '8px'
+        this.bodySection.style.fontSize = '1rem'
 
         this.newSlide.appendChild(this.bodySection)
+
+        this.slideImage = document.createElement('img')
+
+        this.slideImage.src = this.imageUrl
+
+        this.newSlide.appendChild(this.slideImage)
 
         this.newSlide.addEventListener('click', this.handleSlideClick)
 

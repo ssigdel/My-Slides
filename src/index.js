@@ -46,10 +46,12 @@ titleInput.addEventListener('change', (e) => {
     slides[currentIndex -1 ].titleSection.innerText = slides[currentIndex -1 ].title 
 })
 
-bodyInput.addEventListener('change', (e) => {
-    slides[currentIndex - 1].body = e.target.value
-    slides[currentIndex -1].bodySection.innerText = slides[currentIndex -1 ].body
-})
+if(bodyInput.getAttribute('type') != 'file'){
+    bodyInput.addEventListener('change', (e) => {
+        slides[currentIndex - 1].body = e.target.value
+        slides[currentIndex -1].bodySection.innerText = slides[currentIndex -1 ].body
+    })
+}
 
 editSection.style.backgroundColor = colourInput.value
 
@@ -134,12 +136,45 @@ rightAlign.addEventListener('click', (e) => {
 })
 
 
+//insert image section
+insertImage.addEventListener('click', (e) => {
+    let inputType = 'file'
+    bodyInput.setAttribute('type', inputType)
+})
+
+//handle file input change
+bodyInput.addEventListener('change', () => {
+    const inputFile = new FileReader();
+
+    inputFile.addEventListener('load', () => {
+        localStorage.setItem('image', inputFile.result)
+    })
+
+    inputFile.readAsDataURL(bodyInput.files[0])
+    slides[currentIndex - 1].imageUrl = localStorage.getItem('image')
+    slides[currentIndex -1].slideImage.setAttribute('src',  localStorage.getItem('image'))
+
+    slides[currentIndex -1].slideImage.style.width = "10rem"
+})
+
+//change view
+rightView.addEventListener('click', (e) => {
+    mainContainer.style.flexDirection = 'row-reverse'
+})
 
 
+leftView.addEventListener('click', (e) => {
+    mainContainer.style.flexDirection = 'row'
+})
 
-
-
-
+//handle theme click
+theme.addEventListener('click', (e) => {
+    for(let i = 0; i < slides.length; i++){
+        slides[i].newSlide.style.backgroundColor = 'white'
+        slides[i].newSlide.style.color = 'black'
+        slides[i].newSlide.style.border = '2px solid #777'
+    }
+})
 
 
 
