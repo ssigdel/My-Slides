@@ -135,11 +135,26 @@ rightAlign.addEventListener('click', (e) => {
     }
 })
 
+//nav items click state
+let navItemClick = {
+    clickInsertImage : false,
+    clickTheme : false
+}
 
 //insert image section
 insertImage.addEventListener('click', (e) => {
-    let inputType = 'file'
-    bodyInput.setAttribute('type', inputType)
+    if(navItemClick.clickInsertImage){
+        e.target.style.textDecoration = 'none'
+        let inputType = 'text'
+        bodyInput.setAttribute('type', inputType)
+        navItemClick.clickInsertImage = false
+    }
+    else{
+        e.target.style.textDecoration = 'underline'
+        let inputType = 'file'
+        bodyInput.setAttribute('type', inputType)
+        navItemClick.clickInsertImage = true
+    }
 })
 
 //handle file input change
@@ -157,6 +172,24 @@ bodyInput.addEventListener('change', () => {
     slides[currentIndex -1].slideImage.style.width = "10rem"
 })
 
+//handle theme click
+theme.addEventListener('click', (e) => {
+    if(navItemClick.clickTheme){
+        e.target.style.textDecoration = 'none'
+        slides[currentIndex - 1].newSlide.style.backgroundColor = '#333'
+        slides[currentIndex - 1].newSlide.style.color = 'white'
+        slides[currentIndex - 1].newSlide.style.border = 'none'
+        navItemClick.clickTheme = false
+    } else{
+        e.target.style.textDecoration = 'underline'
+        slides[currentIndex - 1].newSlide.style.backgroundColor = 'white'
+        slides[currentIndex - 1].newSlide.style.color = 'black'
+        slides[currentIndex - 1].newSlide.style.border = '2px solid #777'
+        navItemClick.clickTheme = true
+    }
+    
+})
+
 //change view
 rightView.addEventListener('click', (e) => {
     mainContainer.style.flexDirection = 'row-reverse'
@@ -165,15 +198,6 @@ rightView.addEventListener('click', (e) => {
 
 leftView.addEventListener('click', (e) => {
     mainContainer.style.flexDirection = 'row'
-})
-
-//handle theme click
-theme.addEventListener('click', (e) => {
-    for(let i = 0; i < slides.length; i++){
-        slides[i].newSlide.style.backgroundColor = 'white'
-        slides[i].newSlide.style.color = 'black'
-        slides[i].newSlide.style.border = '2px solid #777'
-    }
 })
 
 

@@ -21,3 +21,5 @@ const leftView = document.querySelector('.left-view')
 const rightView = document.querySelector('.right-view')
 const theme = document.querySelector('.theme')
 const blankSlide = document.querySelector('.blank-slide')
+
+

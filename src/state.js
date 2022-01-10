@@ -14,7 +14,6 @@ if(screenState.homeScreen){
 
 
 blankSlide.addEventListener('click', (e) => {
-    console.log('clicked')
     screenState.homeScreen = false
     screenState.slideScreen = true
 
@@ -27,3 +26,4 @@ blankSlide.addEventListener('click', (e) => {
         header.style.borderBottom = '1px solid #999'
     }
 })
+
