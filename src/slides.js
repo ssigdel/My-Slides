@@ -21,21 +21,19 @@ class Slide{
 
         this.titleSection.innerText = this.title
 
-        this.titleSection.style.fontSize = '2rem'
-
         this.newSlide.appendChild(this.titleSection)
 
         this.bodySection = document.createElement('div')
 
         this.bodySection.innerText = this.body
 
-        this.bodySection.style.fontSize = '1rem'
-
         this.newSlide.appendChild(this.bodySection)
 
         this.slideImage = document.createElement('img')
 
         this.slideImage.src = this.imageUrl
+
+        this.slideImage.style.width = '80%'
 
         this.newSlide.appendChild(this.slideImage)
 
