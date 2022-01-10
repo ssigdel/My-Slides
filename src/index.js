@@ -1,9 +1,9 @@
 let slides = JSON.parse(localStorage.getItem('slides')) || []
-let index = slides.length || 0
+let index = slides.length || 1
 
 //intialize first slide on window load
 window.onload = () => {
-    if(slides){
+    if(slides.length != 0){
         for(let i = 0; i < slides.length; i++){
             let slide = new Slide(slides[i].index, slides[i].title, slides[i].body )
             slide.createSlide()
@@ -52,19 +52,17 @@ presentButton.onclick = (() => {
 
 //handle changes in edit section
 titleInput.addEventListener('change', (e) => {
+    slides[currentIndex -1 ].titleSection.innerText = e.target.value
     slides[currentIndex - 1].title = e.target.value
-    slides[currentIndex -1 ].titleSection.innerText = slides[currentIndex -1 ].title 
     localStorage.setItem('slides', JSON.stringify(slides))
-
 })
 
-if(bodyInput.getAttribute('type') != 'file'){
-    bodyInput.addEventListener('change', (e) => {
-        slides[currentIndex - 1].body = e.target.value
-        slides[currentIndex -1].bodySection.innerText = slides[currentIndex -1 ].body
-        localStorage.setItem('slides', JSON.stringify(slides))
-    })
-}
+bodyInput.addEventListener('change', (e) => {
+    slides[currentIndex -1].bodySection.innerText = e.target.value
+    slides[currentIndex - 1].body = e.target.value
+    localStorage.setItem('slides', JSON.stringify(slides))
+})
+
 
 editSection.style.backgroundColor = colourInput.value
 
@@ -213,6 +211,23 @@ leftView.addEventListener('click', (e) => {
     mainContainer.style.flexDirection = 'row'
 })
 
+
+//delete slide
+document.addEventListener('keydown', (e) => {
+    if(e.code === 'Delete'){
+        slides.splice(currentIndex - 1, 1)
+       
+
+        if(currentIndex - 1 < slides.length){
+            for(let i = currentIndex - 1; i < slides.length; i++){
+                slides[i].index = slides[i].index - 1
+            }
+        }
+
+        localStorage.setItem('slides', JSON.stringify(slides))
+    }
+
+})
 
 
 
