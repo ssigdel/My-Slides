@@ -1,11 +1,20 @@
-let index = 1;
-let slides = []
+let slides = JSON.parse(localStorage.getItem('slides')) || []
+let index = slides.length || 0
 
 //intialize first slide on window load
 window.onload = () => {
-    let slide = new Slide(index)
-    slides.push(slide)
-    slide.createSlide()
+    if(slides){
+        for(let i = 0; i < slides.length; i++){
+            let slide = new Slide(slides[i].index, slides[i].title, slides[i].body )
+            slide.createSlide()
+        }
+    }
+    else{
+        let slide = new Slide(index)
+        slides.push(slide)
+        slide.createSlide()
+        localStorage.setItem('slides', JSON.stringify(slides))
+    }
 }
 
 //create new slide on button click
@@ -14,6 +23,7 @@ newSlideButton.onclick = (() => {
     let slide = new Slide(index)
     slides.push(slide)
     slide.createSlide()
+    localStorage.setItem('slides', JSON.stringify(slides))
 })
 
 //present slide on button click
@@ -44,12 +54,15 @@ presentButton.onclick = (() => {
 titleInput.addEventListener('change', (e) => {
     slides[currentIndex - 1].title = e.target.value
     slides[currentIndex -1 ].titleSection.innerText = slides[currentIndex -1 ].title 
+    localStorage.setItem('slides', JSON.stringify(slides))
+
 })
 
 if(bodyInput.getAttribute('type') != 'file'){
     bodyInput.addEventListener('change', (e) => {
         slides[currentIndex - 1].body = e.target.value
         slides[currentIndex -1].bodySection.innerText = slides[currentIndex -1 ].body
+        localStorage.setItem('slides', JSON.stringify(slides))
     })
 }
 
@@ -155,22 +168,22 @@ insertImage.addEventListener('click', (e) => {
         bodyInput.setAttribute('type', inputType)
         navItemClick.clickInsertImage = true
     }
-})
 
-//handle file input change
-bodyInput.addEventListener('change', () => {
-    const inputFile = new FileReader();
-
-    inputFile.addEventListener('load', () => {
-        localStorage.setItem('image', inputFile.result)
+    bodyInput.addEventListener('change', () => {
+        const inputFile = new FileReader();
+    
+        inputFile.addEventListener('load', () => {
+            localStorage.setItem('image', inputFile.result)
+        })
+    
+        inputFile.readAsDataURL(bodyInput.files[0])
+        slides[currentIndex - 1].imageUrl = localStorage.getItem('image')
+        slides[currentIndex -1].slideImage.setAttribute('src',  localStorage.getItem('image'))
+    
+        slides[currentIndex -1].slideImage.style.width = "10rem"
     })
-
-    inputFile.readAsDataURL(bodyInput.files[0])
-    slides[currentIndex - 1].imageUrl = localStorage.getItem('image')
-    slides[currentIndex -1].slideImage.setAttribute('src',  localStorage.getItem('image'))
-
-    slides[currentIndex -1].slideImage.style.width = "10rem"
 })
+
 
 //handle theme click
 theme.addEventListener('click', (e) => {

@@ -3,7 +3,6 @@ let screenState = {
     slideScreen: false
 }
 
-
 if(screenState.homeScreen){
     mainSection.style.display = 'none'
     leftSection.style.display = 'none'
@@ -11,7 +10,6 @@ if(screenState.homeScreen){
     presentButton.style.display= 'none'
     header.style.borderBottom = '0'
 }
-
 
 blankSlide.addEventListener('click', (e) => {
     screenState.homeScreen = false

@@ -1,10 +1,10 @@
 let currentIndex = 1
 
 class Slide{
-    constructor(index){
+    constructor(index, title, body){
         this.index = index
-        this.title = ''
-        this.body = ''
+        this.title = title || ''
+        this.body = body || ''
         this.imageUrl = ''
     }
 
