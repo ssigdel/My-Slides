@@ -64,6 +64,10 @@ nav ul li {
   padding-bottom: 180px;
 }
 
+.input-container input[type="file"] {
+  display: none;
+}
+
 .text-icons li i {
   padding: 5px;
 }
@@ -90,4 +94,12 @@ nav ul li {
   font-size: 30px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   cursor: pointer;
+}
+
+.image-upload {
+  color: #fafafa;
+  border: 3px dashed #555;
+  text-align: center;
+  width: 80%;
+  height: 200px;
 }

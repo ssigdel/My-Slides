@@ -19,6 +19,7 @@ blankSlide.addEventListener('click', (e) => {
         blankSlide.style.display = 'none'
         mainSection.style.display = 'flex'
         leftSection.style.display = 'block'
+        imageUpload.style.display = 'none';
         navBar.style.display = 'flex'
         presentButton.style.display= 'block'
         header.style.borderBottom = '1px solid #999'

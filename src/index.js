@@ -5,7 +5,7 @@ let index = slides.length || 1
 window.onload = () => {
     if(slides.length != 0){
         for(let i = 0; i < slides.length; i++){
-            let slide = new Slide(slides[i].index, slides[i].title, slides[i].body )
+            let slide = new Slide(slides[i].index, slides[i].title, slides[i].body, slides[i].imageUrl )
             slide.createSlide()
         }
     }
@@ -156,30 +156,31 @@ let navItemClick = {
 insertImage.addEventListener('click', (e) => {
     if(navItemClick.clickInsertImage){
         e.target.style.textDecoration = 'none'
-        let inputType = 'text'
-        bodyInput.setAttribute('type', inputType)
+        bodyInput.style.display = 'block'
+        imageUpload.style.display = 'none'
         navItemClick.clickInsertImage = false
     }
     else{
         e.target.style.textDecoration = 'underline'
-        let inputType = 'file'
-        bodyInput.setAttribute('type', inputType)
+        bodyInput.style.display = 'none'
+        imageUpload.style.display = 'block'
         navItemClick.clickInsertImage = true
     }
 
-    bodyInput.addEventListener('change', () => {
-        const inputFile = new FileReader();
+    // bodyInput.addEventListener('change', () => {
+    //     const inputFile = new FileReader();
     
-        inputFile.addEventListener('load', () => {
-            localStorage.setItem('image', inputFile.result)
-        })
+    //     inputFile.addEventListener('load', () => {
+    //         localStorage.setItem('image', inputFile.result)
+    //     })
     
-        inputFile.readAsDataURL(bodyInput.files[0])
-        slides[currentIndex - 1].imageUrl = localStorage.getItem('image')
-        slides[currentIndex -1].slideImage.setAttribute('src',  localStorage.getItem('image'))
+    //     inputFile.readAsDataURL(bodyInput.files[0])
+    //     console.log(localStorage.getItem('image'))
+    //     slides[currentIndex - 1].imageUrl = localStorage.getItem('image')
+    //     slides[currentIndex -1].slideImage.setAttribute('src',  localStorage.getItem('image'))
     
-        slides[currentIndex -1].slideImage.style.width = "10rem"
-    })
+    //     slides[currentIndex -1].slideImage.style.width = "10rem"
+    // })
 })
 
 
@@ -217,13 +218,11 @@ document.addEventListener('keydown', (e) => {
     if(e.code === 'Delete'){
         slides.splice(currentIndex - 1, 1)
        
-
         if(currentIndex - 1 < slides.length){
             for(let i = currentIndex - 1; i < slides.length; i++){
                 slides[i].index = slides[i].index - 1
             }
         }
-
         localStorage.setItem('slides', JSON.stringify(slides))
     }
 
