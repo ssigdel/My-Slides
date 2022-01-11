@@ -166,21 +166,6 @@ insertImage.addEventListener('click', (e) => {
         imageUpload.style.display = 'block'
         navItemClick.clickInsertImage = true
     }
-
-    // bodyInput.addEventListener('change', () => {
-    //     const inputFile = new FileReader();
-    
-    //     inputFile.addEventListener('load', () => {
-    //         localStorage.setItem('image', inputFile.result)
-    //     })
-    
-    //     inputFile.readAsDataURL(bodyInput.files[0])
-    //     console.log(localStorage.getItem('image'))
-    //     slides[currentIndex - 1].imageUrl = localStorage.getItem('image')
-    //     slides[currentIndex -1].slideImage.setAttribute('src',  localStorage.getItem('image'))
-    
-    //     slides[currentIndex -1].slideImage.style.width = "10rem"
-    // })
 })
 
 
@@ -188,7 +173,7 @@ insertImage.addEventListener('click', (e) => {
 theme.addEventListener('click', (e) => {
     if(navItemClick.clickTheme){
         e.target.style.textDecoration = 'none'
-        slides[currentIndex - 1].newSlide.style.backgroundColor = '#333'
+        slides[currentIndex - 1].newSlide.style.background = '#333'
         slides[currentIndex - 1].newSlide.style.color = 'white'
         slides[currentIndex - 1].newSlide.style.border = 'none'
         navItemClick.clickTheme = false
@@ -217,7 +202,7 @@ leftView.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if(e.code === 'Delete'){
         slides.splice(currentIndex - 1, 1)
-       
+      
         if(currentIndex - 1 < slides.length){
             for(let i = currentIndex - 1; i < slides.length; i++){
                 slides[i].index = slides[i].index - 1

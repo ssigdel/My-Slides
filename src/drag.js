@@ -10,6 +10,7 @@ const handleImage = (image) => {
         displayImage.style.height = '80%'
         imageUpload.appendChild(displayImage)
         slides[currentIndex - 1].imageUrl = imageReader.result
+        slides[currentIndex - 1].slideImage.src = imageReader.result
         localStorage.setItem('slides', JSON.stringify(slides))
     })
     imageReader.readAsDataURL(image)
