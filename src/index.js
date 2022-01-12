@@ -1,11 +1,13 @@
 let slides = JSON.parse(localStorage.getItem('slides')) || []
 let index = slides.length || 1
 
+
 //intialize first slide on window load
 window.onload = () => {
     if(slides.length != 0){
         for(let i = 0; i < slides.length; i++){
             let slide = new Slide(slides[i].index, slides[i].title, slides[i].body, slides[i].imageUrl )
+            console.log(slide)
             slide.createSlide()
         }
     }
@@ -34,17 +36,17 @@ presentButton.onclick = (() => {
         if(event.code === 'ArrowRight'){
             currentIndex++
             slides[currentIndex -1].newSlide.requestFullscreen()
-            if(currentIndex > slides.length){
-                currentIndex = 0
-            }
+            // if(currentIndex > slides.length){
+            //     currentIndex = 0
+            // }
         }
     
         if(event.code === 'ArrowLeft'){
             currentIndex--
             slides[currentIndex -1].newSlide.requestFullscreen()
-            if(currentIndex <= 0){
-                currentIndex = slides.length
-            }
+            // if(currentIndex <= 0){
+            //     currentIndex = slides.length
+            // }
         }
     })
     
@@ -52,14 +54,15 @@ presentButton.onclick = (() => {
 
 //handle changes in edit section
 titleInput.addEventListener('change', (e) => {
-    slides[currentIndex -1 ].titleSection.innerText = e.target.value
     slides[currentIndex - 1].title = e.target.value
+    slides[currentIndex -1 ].titleSection.innerText = slides[currentIndex - 1].title
+    console.log(slides)
     localStorage.setItem('slides', JSON.stringify(slides))
 })
 
 bodyInput.addEventListener('change', (e) => {
-    slides[currentIndex -1].bodySection.innerText = e.target.value
     slides[currentIndex - 1].body = e.target.value
+    slides[currentIndex -1].bodySection.innerText = slides[currentIndex - 1].body
     localStorage.setItem('slides', JSON.stringify(slides))
 })
 
@@ -80,76 +83,11 @@ let clickState = {
     clickRightAlign: false
 }
 
-//handle text icons click
-boldText.addEventListener('click', (e) => {
-    if(clickState.clickBoldText){
-        e.target.style.backgroundColor = 'transparent'
-        titleInput.style.fontWeight = 'normal'
-        clickState.clickBoldText = false
-    } 
-    else{
-        e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.fontWeight = 'bold'
-        clickState.clickBoldText = true
-    }
-})
-
-italicText.addEventListener('click', (e) => {
-    if(clickState.clickItalicText){
-        e.target.style.backgroundColor = 'transparent'
-        titleInput.style.fontStyle = 'normal'
-        clickState.clickItalicText = false
-    }
-    else{
-        e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.fontStyle = 'italic'
-        clickState.clickItalicText = true
-    }
-})
-
-leftAlign.addEventListener('click', (e) => {
-    if(clickState.clickLeftAlign){
-        e.target.style.backgroundColor = 'transparent'
-        titleInput.style.textAlign = 'center'
-        clickState.clickLeftAlign = false
-    }
-    else{
-        e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.textAlign = 'left'
-        clickState.clickLeftAlign = true
-    }
-})
-
-centerAlign.addEventListener('click', (e) => {
-    if(clickState.clickCenterAlign){
-        e.target.style.backgroundColor = 'transparent'
-        titleInput.style.textAlign = 'center'
-        clickState.clickCenterAlign = false
-    }
-    else{
-        e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.textAlign = 'center'
-        clickState.clickCenterAlign = true
-    }
-})
-
-rightAlign.addEventListener('click', (e) => {
-    if(clickState.clickRightAlign){
-        e.target.style.backgroundColor = 'transparent'
-        titleInput.style.textAlign = 'center'
-        clickState.clickRightAlign = false
-    }
-    else{
-        e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.textAlign = 'right'
-        clickState.clickRightAlign = true
-    }
-})
-
 //nav items click state
 let navItemClick = {
     clickInsertImage : false,
-    clickTheme : false
+    clickTheme : false,
+    clickLayout: false
 }
 
 //insert image section
@@ -187,6 +125,19 @@ theme.addEventListener('click', (e) => {
     
 })
 
+//handle layout click
+layout.addEventListener('click', (e) => {
+    if(navItemClick.clickLayout){
+        e.target.style.textDecoration = 'none'
+        inputContainer.style.flexDirection = 'column'
+        navItemClick.clickLayout = false
+    } else{
+        e.target.style.textDecoration = 'underline'
+        inputContainer.style.flexDirection = 'row'
+        navItemClick.clickLayout = true
+    }
+})
+
 //change view
 rightView.addEventListener('click', (e) => {
     mainContainer.style.flexDirection = 'row-reverse'
@@ -212,6 +163,89 @@ document.addEventListener('keydown', (e) => {
     }
 
 })
+
+//selection text
+let selection = ''
+let activeInput = ''
+
+const onMouseUp = (e) => {
+    activeInput = document.activeElement
+    selectionText = activeInput.value.substring(
+        activeInput.selectionStart, activeInput.selectionEnd
+    )
+}
+
+titleInput.addEventListener('mouseup', onMouseUp, false)
+bodyInput.addEventListener('mouseup', onMouseUp, false)
+
+boldText.addEventListener('click', (e) => {
+    if(clickState.clickBoldText){
+        e.target.style.backgroundColor = 'transparent'
+        titleInput.style.fontWeight = 'normal'
+        clickState.clickBoldText = false
+    } 
+    else{
+        e.target.style.backgroundColor = 'lightblue'
+        titleInput.style.fontWeight = 'bold'
+        clickState.clickBoldText = true
+    }
+})
+
+italicText.addEventListener('click', (e) => {
+    if(clickState.clickItalicText){
+        e.target.style.backgroundColor = 'transparent'
+        titleInput.style.fontStyle = 'normal'
+        clickState.clickItalicText = false
+    }
+    else{
+        e.target.style.backgroundColor = 'lightblue'
+        titleInput.style.fontStyle = 'italic'
+        clickState.clickItalicText = true
+    }
+})
+
+leftAlign.addEventListener('click', (e) => {
+    if(clickState.clickLeftAlign){
+        e.target.style.backgroundColor = 'transparent'
+       activeInput.style.textAlign = 'center'
+        clickState.clickLeftAlign = false
+    }
+    else{
+        e.target.style.backgroundColor = 'lightblue'
+        activeInput.style.textAlign = 'left'
+        clickState.clickLeftAlign = true
+    }
+})
+
+centerAlign.addEventListener('click', (e) => {
+    if(clickState.clickCenterAlign){
+        e.target.style.backgroundColor = 'transparent'
+        activeInput.style.textAlign = 'center'
+        clickState.clickCenterAlign = false
+    }
+    else{
+        e.target.style.backgroundColor = 'lightblue'
+        activeInput.style.textAlign = 'center'
+        clickState.clickCenterAlign = true
+    }
+})
+
+rightAlign.addEventListener('click', (e) => {
+    if(clickState.clickRightAlign){
+        e.target.style.backgroundColor = 'transparent'
+        activeInput.style.textAlign = 'center'
+        clickState.clickRightAlign = false
+    }
+    else{
+        e.target.style.backgroundColor = 'lightblue'
+        activeInput.style.textAlign = 'right'
+        clickState.clickRightAlign = true
+    }
+})
+
+
+
+
 
 
 

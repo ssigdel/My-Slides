@@ -22,6 +22,8 @@ const rightView = document.querySelector('.right-view')
 const theme = document.querySelector('.theme')
 const blankSlide = document.querySelector('.blank-slide')
 const imageUpload = document.querySelector('.image-upload')
+const layout = document.querySelector('.layout')
+const inputContainer = document.querySelector('.input-container')
 
 
 
