@@ -24,3 +24,4 @@ const blankSlide = document.querySelector('.blank-slide')
 const imageUpload = document.querySelector('.image-upload')
 
 
+

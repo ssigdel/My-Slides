@@ -33,7 +33,7 @@ class Slide{
 
         this.slideImage.src = this.imageUrl
 
-        this.slideImage.style.width = '80%'
+        this.slideImage.style.width = '50%'
 
         this.newSlide.appendChild(this.slideImage)
 

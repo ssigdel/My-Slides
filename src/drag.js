@@ -4,11 +4,11 @@ const handleImage = (image) => {
     const imageReader = new FileReader()
 
     imageReader.addEventListener('load', (e) => {
-        let displayImage = document.createElement('img')
-        displayImage.src = imageReader.result
-        displayImage.style.width = 'inherit'
-        displayImage.style.height = '80%'
-        imageUpload.appendChild(displayImage)
+        // let displayImage = document.createElement('img')
+        // displayImage.src = imageReader.result
+        // displayImage.style.width = 'inherit'
+        // displayImage.style.height = '80%'
+        // imageUpload.appendChild(displayImage)
         slides[currentIndex - 1].imageUrl = imageReader.result
         slides[currentIndex - 1].slideImage.src = imageReader.result
         localStorage.setItem('slides', JSON.stringify(slides))
