@@ -38,8 +38,8 @@ class BarChart{
     }
     drawAxisText(){
         ctx.font = '16px serif'
-        ctx.fillText('x-axis', barChart.width / 2 - 50, barChart.height - 30)
-       ctx.fillText('y-axis', 5, barChart.height / 2)
+        ctx.fillText('x-axis', this.width / 2 - 50, this.height - 30)
+       ctx.fillText('y-axis', 5, this.height / 2)
     }
 }
 
