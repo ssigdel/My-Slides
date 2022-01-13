@@ -1,5 +1,5 @@
-let barCanvas = document.getElementById('canvas')
-let ctx = barCanvas.getContext('2d')
+let canvas = document.getElementById('canvas')
+let ctx = canvas.getContext('2d')
 
 //data
 let data = [230, 200, 180, 240, 150]
@@ -78,7 +78,6 @@ for (let i = 0; i < data.length; i++){
     bar.drawRectangle()
     bar.drawText()
 }
-
 
 
 

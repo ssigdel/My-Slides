@@ -40,6 +40,8 @@ class Slide{
 
         this.newSlide.addEventListener('click', this.handleSlideClick)
 
+        this.newSlide.addEventListener('dblclick', this.handleSlideDoubleClick)
+
         leftContent.appendChild(this.slideIndex)
 
         leftContent.appendChild(this.newSlide)
@@ -48,8 +50,16 @@ class Slide{
     handleSlideClick = () => {
         titleInput.value = this.title 
         bodyInput.value = this.body 
-
         currentIndex = this.index
+    }
+
+    handleSlideDoubleClick = () => {
+        editSection.innerHTML = this.newSlide.innerHTML
+        editSection.style.display = 'flex'
+        editSection.style.background = '#ecdfdf'
+        editSection.style.flexDirection = 'column'
+        editSection.style.justifyContent = 'center';
+        editSection.style.alignItems = 'center';
     }
 
 }

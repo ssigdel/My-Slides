@@ -1,5 +1,5 @@
-let scatterCanvas = document.getElementById('canvas')
-let ctx = scatterCanvas.getContext('2d')
+let canvas = document.getElementById('canvas')
+let ctx = canvas.getContext('2d')
 
 //data
 let data = [130, 280, 170, 240, 50]

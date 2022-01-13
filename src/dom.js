@@ -1,8 +1,11 @@
 //dom intialization
+const body = document.getElementsByTagName('body')[0]
 const mainContainer = document.querySelector('.main-container')
 const mainSection = document.querySelector('.main-section')
 const header = document.querySelector('header')
+const heading = document.getElementsByTagName('h1')[0]
 const navBar = document.querySelector('nav')
+const changeDisplay = document.querySelector('.change-display')
 const leftSection = document.querySelector('.left-section')
 const leftContent = document.querySelector('.left-content')
 const titleInput = document.querySelector('input[name="title"]')
@@ -26,6 +29,9 @@ const layout = document.querySelector('.layout')
 const inputContainer = document.querySelector('.input-container')
 const canvasContainer = document.querySelector('.canvas-container')
 const charts = document.querySelector('.charts')
+const darkTheme = document.querySelector('.dark-button')
+const list = document.getElementsByTagName('li')
+
 
 
 

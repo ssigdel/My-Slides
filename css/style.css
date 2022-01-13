@@ -31,12 +31,24 @@ nav ul li {
   cursor: pointer;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .button {
-  padding: 10px;
+  padding: 8px;
   border: none;
   border-radius: 10px;
   background-color: #f1a501;
   color: #fff;
+  margin: 5px;
+}
+
+.dark-button {
+  background-color: #333;
+  color: white;
 }
 
 .input-container {
