@@ -1,31 +1,73 @@
 let canvas = document.getElementById('canvas')
 let ctx = canvas.getContext('2d')
 
+//data
+let data = [230, 200, 180, 240, 150]
 
-//text
-ctx.font = '24px serif'
-ctx.fillText('Bar Chart', 250, 30)
+let x = 0
 
-//draw line
-ctx.beginPath()
-ctx.moveTo(50, 50)
-ctx.lineTo(50, 350)
-ctx.lineTo(550, 350)
-ctx.stroke()
+//backgroundColor
+let backgroundColor = [
+    'rgba(200, 0, 0, 0.6)', 
+    'rgba(0, 200, 0, 0.6)', 
+    'rgba(0, 0, 200, 0.6)', 
+    'rgba(100, 50, 50, 0.6)', 
+    'rgba(50, 200, 50, 0.6)'
+]
 
-//draw rectangle
-ctx.fillStyle = 'rgba(200, 0, 0, 0.6)'
-ctx.fillRect(80, 70, 50, 280)
+//BarChart class
+class BarChart{
+    constructor(x, y, width, height){
+        this.x = 50 || x
+        this.y = 50 || y
+        this.width = 600 || width
+        this.height = 400 || height
+    }
 
-ctx.fillStyle = 'rgba(0, 200, 0, 0.6)'
-ctx.fillRect(160, 100, 50, 250)
+    drawText(){
+        ctx.font = '24px serif'
+        ctx.fillText('Bar Chart', 250, 30)
+    }
 
-ctx.fillStyle = 'rgba(0, 0, 200, 0.6)'
-ctx.fillRect(240, 120, 50, 230)
+    drawLine(){
+        ctx.beginPath()
+        ctx.moveTo(this.x, this.y)
+        ctx.lineTo(this.x, this.height - this.y)
+        ctx.lineTo(this.width - this.x, this.height - this.y)
+        ctx.stroke()
+    }
+}
 
-ctx.fillStyle = 'rgba(100, 50, 50, 0.6)'
-ctx.fillRect(320, 60, 50, 290)
+//Bar class
+class Bar{
+    constructor(x, data, backgroundColor){
+        this.x = x
+        this.width = 50
+        this.data = data
+        this.backgroundColor = backgroundColor
+        this.contentHeight = barChart.height - 50
+        this. y = this.contentHeight - this.data
+    }
 
-ctx.fillStyle = 'rgba(50, 200, 50, 0.6)'
-ctx.fillRect(400, 150, 50, 200)
+    drawRectangle(){
+        ctx.fillStyle = this.backgroundColor
+        ctx.fillRect(this.x, this.y, this.width, this.contentHeight - this.y )
+    }
+}
+
+//new instance of BarChart
+let barChart = new BarChart()
+barChart.drawText()
+barChart.drawLine()
+
+//intialize bar according to data length
+for (let i = 0; i < data.length; i++){
+    x = x + 80
+    let bar = new Bar(x, data[i], backgroundColor[i])
+    bar.drawRectangle()
+}
+
+
+
+
 
