@@ -1,8 +1,8 @@
-let canvas = document.getElementById('canvas')
-let ctx = canvas.getContext('2d')
+let scatterCanvas = document.getElementById('canvas')
+let ctx = scatterCanvas.getContext('2d')
 
 //data
-let data = [130, 300, 170, 240, 50]
+let data = [130, 280, 170, 240, 50]
 
 let x = 0
 
@@ -56,13 +56,13 @@ class Point{
     }
 }
 
-//new instance of BarChart
+//new instance of ScatterChart
 let scatterChart = new ScatterChart()
 scatterChart.drawText()
 scatterChart.drawAxis()
 scatterChart.drawAxisText()
 
-//intialize bar according to data length
+//intialize point according to data length
 for (let i = 0; i < data.length; i++){
     x = x + 80
     let j = 0

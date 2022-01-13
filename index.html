@@ -44,7 +44,11 @@
                 <p>Current Slide</p>
             </div>
             <div class="canvas-container">
-                <canvas id="canvas" width="600" height="400" ></canvas>
+                <select name="charts" class="charts">
+                    <option value="bar-chart">Bar Chart</option>
+                    <option value="scatter-chart">Scatter Plot</option>
+                </select>
+                <canvas id="canvas" class="canvas" width="600" height="400" ></canvas>
             </div>
         <section class="left-section">
             <div class="left-content">
@@ -75,6 +79,6 @@
     <script src="src/slides.js"></script>
     <script src="src/index.js"></script>
     <script src="src/drag.js"></script>
-    <script src="chart/point.js"></script>
+    <script src="chart/bar.js"></script>
 </body>
 </html>

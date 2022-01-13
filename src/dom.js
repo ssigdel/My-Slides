@@ -25,6 +25,9 @@ const imageUpload = document.querySelector('.image-upload')
 const layout = document.querySelector('.layout')
 const inputContainer = document.querySelector('.input-container')
 const canvasContainer = document.querySelector('.canvas-container')
+const charts = document.querySelector('.charts')
+
+
 
 
 

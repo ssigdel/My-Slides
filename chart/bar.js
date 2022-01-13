@@ -1,5 +1,5 @@
-let canvas = document.getElementById('canvas')
-let ctx = canvas.getContext('2d')
+let barCanvas = document.getElementById('canvas')
+let ctx = barCanvas.getContext('2d')
 
 //data
 let data = [230, 200, 180, 240, 150]
@@ -50,7 +50,7 @@ class Bar{
         this.width = 50
         this.data = data
         this.backgroundColor = backgroundColor
-        this.contentHeight = barChart.height - 50
+        this.contentHeight = 350
         this.y = this.contentHeight - this.data
     }
     drawText(){
@@ -63,6 +63,7 @@ class Bar{
         ctx.fillRect(this.x, this.y, this.width, this.contentHeight - this.y )
     }
 }
+
 
 //new instance of BarChart
 let barChart = new BarChart()
@@ -77,6 +78,9 @@ for (let i = 0; i < data.length; i++){
     bar.drawRectangle()
     bar.drawText()
 }
+
+
+
 
 
 
