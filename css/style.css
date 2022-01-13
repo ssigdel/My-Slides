@@ -86,7 +86,7 @@ nav ul li {
   background-color: white;
   color: #333;
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 20%;
   border-radius: 20px;
   display: flex;
@@ -95,6 +95,10 @@ nav ul li {
   font-size: 30px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   cursor: pointer;
+}
+
+.blank-slide p {
+  padding: 5px;
 }
 
 .image-upload {

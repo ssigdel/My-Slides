@@ -26,4 +26,3 @@ const layout = document.querySelector('.layout')
 const inputContainer = document.querySelector('.input-container')
 
 
-

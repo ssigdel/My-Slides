@@ -49,3 +49,12 @@
   width: 600px;
   height: 400px;
 }
+
+#canvas {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

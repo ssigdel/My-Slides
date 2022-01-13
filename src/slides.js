@@ -6,6 +6,7 @@ class Slide{
         this.title = title || ''
         this.body = body || ''
         this.imageUrl = imageUrl || ''
+        
     }
 
     createSlide(){

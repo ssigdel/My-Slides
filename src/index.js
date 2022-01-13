@@ -7,7 +7,6 @@ window.onload = () => {
     if(slides.length != 0){
         for(let i = 0; i < slides.length; i++){
             let slide = new Slide(slides[i].index, slides[i].title, slides[i].body, slides[i].imageUrl )
-            console.log(slide)
             slide.createSlide()
         }
     }
@@ -36,17 +35,21 @@ presentButton.onclick = (() => {
         if(event.code === 'ArrowRight'){
             currentIndex++
             slides[currentIndex -1].newSlide.requestFullscreen()
-            // if(currentIndex > slides.length){
-            //     currentIndex = 0
-            // }
+            if(currentIndex > slides.length){
+                if(document.fullscreenElement){
+                    document.exitFullscreen()
+                }
+            }
         }
     
         if(event.code === 'ArrowLeft'){
             currentIndex--
             slides[currentIndex -1].newSlide.requestFullscreen()
-            // if(currentIndex <= 0){
-            //     currentIndex = slides.length
-            // }
+            if(currentIndex <= 0){
+                if(document.fullscreenElement){
+                    document.exitFullscreen()
+                }
+            }
         }
     })
     
@@ -56,7 +59,6 @@ presentButton.onclick = (() => {
 titleInput.addEventListener('change', (e) => {
     slides[currentIndex - 1].title = e.target.value
     slides[currentIndex -1 ].titleSection.innerText = slides[currentIndex - 1].title
-    console.log(slides)
     localStorage.setItem('slides', JSON.stringify(slides))
 })
 
@@ -153,13 +155,13 @@ leftView.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if(e.code === 'Delete'){
         slides.splice(currentIndex - 1, 1)
-      
         if(currentIndex - 1 < slides.length){
             for(let i = currentIndex - 1; i < slides.length; i++){
                 slides[i].index = slides[i].index - 1
             }
         }
         localStorage.setItem('slides', JSON.stringify(slides))
+        location.reload()
     }
 
 })
@@ -181,12 +183,12 @@ bodyInput.addEventListener('mouseup', onMouseUp, false)
 boldText.addEventListener('click', (e) => {
     if(clickState.clickBoldText){
         e.target.style.backgroundColor = 'transparent'
-        titleInput.style.fontWeight = 'normal'
+        activeInput.style.fontWeight = 'normal'
         clickState.clickBoldText = false
     } 
     else{
         e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.fontWeight = 'bold'
+        activeInput.style.fontWeight = 'bold'
         clickState.clickBoldText = true
     }
 })
@@ -194,12 +196,12 @@ boldText.addEventListener('click', (e) => {
 italicText.addEventListener('click', (e) => {
     if(clickState.clickItalicText){
         e.target.style.backgroundColor = 'transparent'
-        titleInput.style.fontStyle = 'normal'
+        activeInput.style.fontStyle = 'normal'
         clickState.clickItalicText = false
     }
     else{
         e.target.style.backgroundColor = 'lightblue'
-        titleInput.style.fontStyle = 'italic'
+        activeInput.style.fontStyle = 'italic'
         clickState.clickItalicText = true
     }
 })
