@@ -29,12 +29,17 @@ class BarChart{
         ctx.fillText('Bar Chart', 250, 30)
     }
 
-    drawLine(){
+    drawAxis(){
         ctx.beginPath()
         ctx.moveTo(this.x, this.y)
         ctx.lineTo(this.x, this.height - this.y)
         ctx.lineTo(this.width - this.x, this.height - this.y)
         ctx.stroke()
+    }
+    drawAxisText(){
+        ctx.font = '16px serif'
+        ctx.fillText('x-axis', barChart.width / 2 - 50, barChart.height - 30)
+       ctx.fillText('y-axis', 5, barChart.height / 2)
     }
 }
 
@@ -46,7 +51,11 @@ class Bar{
         this.data = data
         this.backgroundColor = backgroundColor
         this.contentHeight = barChart.height - 50
-        this. y = this.contentHeight - this.data
+        this.y = this.contentHeight - this.data
+    }
+    drawText(){
+        ctx.font = '18px serif'
+        ctx.fillText(`${this.data}`, this.x + (this.width / 2) - 10, this.y - 10)
     }
 
     drawRectangle(){
@@ -58,13 +67,15 @@ class Bar{
 //new instance of BarChart
 let barChart = new BarChart()
 barChart.drawText()
-barChart.drawLine()
+barChart.drawAxis()
+barChart.drawAxisText()
 
 //intialize bar according to data length
 for (let i = 0; i < data.length; i++){
     x = x + 80
     let bar = new Bar(x, data[i], backgroundColor[i])
     bar.drawRectangle()
+    bar.drawText()
 }
 
 
