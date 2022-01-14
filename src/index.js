@@ -166,15 +166,11 @@ document.addEventListener('keydown', (e) => {
 
 })
 
-//selection text
-let selection = ''
+//active section
 let activeInput = ''
 
 const onMouseUp = (e) => {
     activeInput = document.activeElement
-    selectionText = activeInput.value.substring(
-        activeInput.selectionStart, activeInput.selectionEnd
-    )
 }
 
 titleInput.addEventListener('mouseup', onMouseUp, false)
