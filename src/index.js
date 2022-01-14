@@ -36,8 +36,8 @@ presentButton.onclick = (() => {
             currentIndex++
             slides[currentIndex -1].newSlide.requestFullscreen()
             if(currentIndex > slides.length){
-                if(document.fullscreenElement){
-                    document.exitFullscreen()
+                if( slides[currentIndex -1].newSlide.fullscreenElement){
+                    slides[currentIndex -1].newSlide.exitFullscreen()
                 }
             }
         }
@@ -46,8 +46,8 @@ presentButton.onclick = (() => {
             currentIndex--
             slides[currentIndex -1].newSlide.requestFullscreen()
             if(currentIndex <= 0){
-                if(document.fullscreenElement){
-                    document.exitFullscreen()
+                if( slides[currentIndex -1].newSlide.fullscreenElement){
+                    slides[currentIndex -1].newSlide.exitFullscreen()
                 }
             }
         }

@@ -9,7 +9,7 @@ darkTheme.addEventListener('click', () => {
         darkTheme.style.backgroundColor = "white"
         darkTheme.style.color = 'black'
         heading.style.color = 'lightblue'
-        changeDisplay.style.color = 'white'
+        leftSection.style.background = 'white'
 
         for(let i = 0; i < list.length; i++){
             list[i].style.color = 'white'
@@ -23,8 +23,7 @@ darkTheme.addEventListener('click', () => {
         darkTheme.style.backgroundColor = "#333"
         darkTheme.style.color = 'white'
         heading.style.color = '#181e4b'
-        changeDisplay.style.color = 'black'
-        
+
         for(let i = 0; i < list.length; i++){
             list[i].style.color = 'black'
         }

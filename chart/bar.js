@@ -39,7 +39,7 @@ class BarChart{
     drawAxisText(){
         ctx.font = '16px serif'
         ctx.fillText('x-axis', this.width / 2 - 50, this.height - 30)
-       ctx.fillText('y-axis', 5, this.height / 2)
+        ctx.fillText('y-axis', 5, this.height / 2)
     }
 }
 
@@ -71,12 +71,15 @@ barChart.drawText()
 barChart.drawAxis()
 barChart.drawAxisText()
 
+let bars = []
+
 //intialize bar according to data length
 for (let i = 0; i < data.length; i++){
     x = x + 80
     let bar = new Bar(x, data[i], backgroundColor[i])
     bar.drawRectangle()
     bar.drawText()
+    bars.push(bar)
 }
 
 

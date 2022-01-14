@@ -121,12 +121,27 @@ nav ul li {
   height: 200px;
 }
 
-.charts {
+.input-data {
   position: absolute;
   top: 12%;
-  left: 70%;
+  left: 60%;
+}
+
+.input-data input {
   outline: none;
-  padding: 5px;
-  font-size: 1rem;
   border-radius: 10px;
+  border: none;
+  padding: 5px;
+  background-color: white;
+  font-size: 14px;
+  width: 300px;
+}
+
+.input-data button {
+  background-color: rgb(133, 122, 236);
+  padding: 5px;
+  font-size: 14px;
+  color: #fafafa;
+  border-radius: 5px;
+  border: none;
 }
